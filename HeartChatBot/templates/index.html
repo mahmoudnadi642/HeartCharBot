@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>DocChat</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/slicknav.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/gijgo.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animated-headline.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fontawesome-all.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/themify-icons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/slick.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/nice-select.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<style>
+        .message-You .message-text{
+            background-color: #d0dcf9;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            border-top-right-radius: 0px;
+            width: fit-content;
+        }
+        .message-Bot .message-text{
+            background-color: antiquewhite;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            border-top-left-radius: 0px;
+            width: fit-content;
+        }
+        .iconBot{
+            background-color: rgb(248, 211, 162);
+            border-radius: 50px;
+            width: 40px;
+            height: 40px;
+            margin-right: 0.5rem;
+        }
+        .iconYou{
+            background-color: #9eb7f1;
+            border-radius: 50px;
+            width: 40px;
+            height: 40px;
+            margin-left: 0.5rem;
+        }
+        .message-Bot{
+            font-size: large!important;
+            display: flex;
+            justify-content: left;
+        }
+        .message-You{
+            font-size: large!important;
+            display: flex;
+            justify-content: right;
+            flex-direction: row-reverse;
+        }
+
+        .form-check-label {
+    margin-bottom: 0;
+    font-size: 1.75rem;
+    margin-left: 0.5rem;
+}
+    </style>
+    <style>
+        /* Sample CSS enhancements */
+    .card-header {
+        font-size: 1.5rem;
+        padding: 1rem;
+        border-radius: 0.25rem;
+    }
+
+    .card-body {
+        height: 400px;
+        overflow-y: auto;
+    }
+
+    .card-footer {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .btn-hero {
+        font-size: 1rem;
+    }
+
+    .btn-hero i {
+        margin-left: 0.5rem;
+    }
+
+    .form-check-label {
+        margin-left: 0.5rem;
+    }
+
+    </style>
+
+</head>
+<body>
+<header>
+    <!-- Header Start -->
+    <div class="header-area">
+        <div class="main-header header-sticky">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <!-- Logo -->
+                    <div class="col-xl-2 col-lg-2 col-md-1">
+                        <div class="logo">
+                            <a href="{{ url_for('index') }}" class="text-primary display-4" style="font-weight: 900;">DocChat</a>
+                        </div>
+                    </div>
+                    <div class="col-xl-10 col-lg-10 col-md-10">
+                        <div class="menu-main d-flex align-items-center justify-content-end">
+                            <!-- Main-menu -->
+                            <div class="main-menu f-right d-none d-lg-block">
+                                <nav>
+                                    <ul id="navigation">
+                                        <li><a href="{{ url_for('index') }}">Home</a></li>
+                                        <li><a href="{{ url_for('book') }}">Book</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="header-right-btn f-right d-none d-lg-block ml-30">
+                                <a href="#chatBot" class="btn header-btn">Start a new Chat</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Mobile Menu -->
+                    <div class="col-12">
+                        <div class="mobile_menu d-block d-lg-none"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+</header>
+<main>
+    <!-- slider Area Start -->
+    <div class="slider-area position-relative">
+        <div class="slider-active">
+            <!-- Single Slider -->
+            <div class="single-slider slider-height d-flex align-items-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-7 col-lg-9 col-md-8 col-sm-9">
+                            <div class="hero__caption">
+                                <span>Committed to success</span>
+                                <h1 class="cd-headline letters scale">We care about your
+                                    <strong class="cd-words-wrapper">
+                                        <b class="is-visible">health</b>
+                                        <b>health</b>
+                                        <b>health</b>
+                                    </strong>
+                                </h1>
+                                <p data-animation="fadeInLeft" data-delay="0.1s">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi uquip ex ea commodo consequat is aute irure.</p>
+                                <a href="#" class="btn hero-btn" data-animation="fadeInLeft" data-delay="0.5s">Appointment <i class="ti-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- slider Area End -->
+<!-- Simplified and Improved HTML Structure -->
+<div class="department_area section-padding2" id="CHATBOOT">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-tittle text-center mb-100">
+                    <span>Our Departments</span>
+                    <h2>Our Medical Services</h2>
+                </div>
+            </div>
+        </div>
+        <div class="dept_main_info white-bg" >
+            <div class="row align-items-center no-gutters">
+                <div class="col-lg-8 mx-auto py-5">
+                    <div class="card chatbox-card">
+                        <div class="card-header text-white" style="background-image: linear-gradient(to left, #559af3, #1462f3, #559af3);">
+                            Chatbot
+                        </div>
+                        <div class="card-body" id="chatbox">
+                            <!-- Chat messages will appear here -->
+                        </div>
+                        <div class="card-footer">
+                            <div id="user-input" class="input-group">
+                                <input type="text" id="answer" class="form-control" placeholder="Answer here..." style="height: auto;">
+                                <div class="input-group-append">
+                                    <button id="next-button" class="btn btn-primary">Send <i class="ti-arrow-right"></i></button>
+                                </div>
+                            </div>
+                            <div id="radio-buttons" class="form-group" style="display: none;">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="yesNo" id="yes" value="1">
+                                    <label class="form-check-label" for="yes">Yes</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="yesNo" id="no" value="0">
+                                    <label class="form-check-label" for="no">No</label>
+                                </div>
+                                <button id="next-radio-button" class="btn btn-primary mt-2">Send <i class="ti-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    <!-- Heart Area Strat -->
+    <div class="heart-area section-padding2">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-lg-12">
+                    <div class="section-tittle mb-55">
+                        <span>DocChat Features</span>
+                        <h2>Why Choose Us?</h2>
+                        <p>Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!-- single features -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-do text-center mb-30">
+                        <div class="do-icon">
+                            <span class="flaticon-brain"></span>
+                        </div>
+                        <div class="do-caption">
+                            <h4>Online Consultation</h4>
+                            <p>Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- single features -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-do active text-center mb-30">
+                        <div class="do-icon">
+                            <span class="flaticon-doctor"></span>
+                        </div>
+                        <div class="do-caption">
+                            <h4>Experienced Doctors</h4>
+                            <p>Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- single features -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-do text-center mb-30">
+                        <div class="do-icon">
+                            <span class="flaticon-injection"></span>
+                        </div>
+                        <div class="do-caption">
+                            <h4>Vaccination</h4>
+                            <p>Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Heart Area End -->
+</main>
+<footer>
+    <!-- Footer Start-->
+    <div class="footer-area footer-padding section-bg" data-background="{{ url_for('static', filename='img/gallery/section_bg02.jpg') }}">
+        <div class="container">
+            <div class="row d-flex justify-content-between">
+                <div class="col-xl-3 col-lg-3 col-md-5 col-sm-6">
+                    <div class="single-footer-caption mb-50">
+                        <!-- logo -->
+                        <div class="footer-logo">
+                            <a href="index.html"><img src="{{ url_for('static', filename='img/logo/logo2_footer.png') }}" alt=""></a>
+                        </div>
+                        <div class="footer-tittle">
+                            <div class="footer-pera">
+                                <p>Consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore dolore magna aliqua.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-3 col-md-3 col-sm-5">
+                    <div class="single-footer-caption mb-50">
+                        <div class="footer-tittle">
+                            <h4>Quick Links</h4>
+                            <ul>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">Services</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-7">
+                    <div class="single-footer-caption mb-50">
+                        <div class="footer-tittle">
+                            <h4>Contact Info</h4>
+                            <ul>
+                                <li><a href="#">Main Avenue, 987</a></li>
+                                <li><a href="#">9876-5435-8907</a></li>
+                                <li><a href="#">info@yourbusiness.com</a></li>
+                                <li><a href="#">yourbusiness.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer bottom -->
+            <div class="row align-items-center">
+                <div class="col-xl-7 col-lg-8 col-md-7">
+                    <div class="footer-copy-right">
+                        <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        DocChat &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End-->
+</footer>
+
+<!-- JS here -->
+<script src="{{ url_for('static', filename='js/vendor/modernizr-3.5.0.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/vendor/jquery-1.12.4.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/owl.carousel.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/isotope.pkgd.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/ajax-form.js') }}"></script>
+<script src="{{ url_for('static', filename='js/waypoints.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.counterup.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/imagesloaded.pkgd.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/scrollIt.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.scrollUp.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/wow.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/nice-select.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.slicknav.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/plugins.js') }}"></script>
+<script src="{{ url_for('static', filename='js/gijgo.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/slick.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.ajaxchimp.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.form.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.validate.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/mail-script.js') }}"></script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+<!-- Custom Script -->
+<script>
+        // JavaScript for chat functionality
+        const answerInput = document.getElementById("answer");
+        const nextButton = document.getElementById("next-button");
+        const chatbox = document.getElementById("chatbox");
+        const radioButtonsDiv = document.getElementById("radio-buttons");
+        const yesRadio = document.getElementById("yes");
+        const noRadio = document.getElementById("no");
+        const nextRadioButton = document.getElementById("next-radio-button");
+
+        let answers = [];
+        let currentQuestionIndex = 0;
+
+        // Questions with labels and descriptions
+        const questions = [
+            {"label": "Age / العمر", "description": "How old are you? / كم عمرك؟", "name": "age", "type": "text"},
+            {"label": "Systolic Blood Pressure / ضغط الدم الانقباضي", "description": "What is your systolic blood pressure? / ما هو ضغط الدم الانقباضي لديك؟", "name": "sysBP", "type": "text"},
+            {"label": "Diastolic Blood Pressure / ضغط الدم الانبساطي", "description": "What is your diastolic blood pressure? / ما هو ضغط الدم الانبساطي لديك؟", "name": "diaBP", "type": "text"},
+            {"label": "Glucose level / مستوى الجلوكوز", "description": "What is your glucose level? / ما هو مستوى الجلوكوز لديك؟", "name": "glucose", "type": "text"},
+            {"label": "Total Cholesterol level / مستوى الكوليسترول الكلي", "description": "What is your total cholesterol level? / ما هو مستوى الكوليسترول الكلي لديك؟", "name": "totChol", "type": "text"},
+            {"label": "Cigarettes per day / عدد السجائر في اليوم", "description": "How many cigarettes do you smoke per day? / كم عدد السجائر التي تدخنها في اليوم؟", "name": "cigsPerDay", "type": "text"},
+            {"label": "Hypertension / الارتفاع في ضغط الدم", "description": "Are you hypertensive? (Yes/No) / هل تعاني من ارتفاع ضغط الدم؟ (نعم/لا)", "name": "prevalentHyp", "type": "radio"},
+            {"label": "Diabetes / السكري", "description": "Do you have diabetes? (Yes/No) / هل تعاني من مرض السكري؟ (نعم/لا)", "name": "diabetes", "type": "radio"},
+            {"label": "Blood Pressure Medication / الأدوية لضغط الدم", "description": "Are you on blood pressure medication? (Yes/No) / هل تتناول أدوية لضغط الدم؟ (نعم/لا)", "name": "BPMeds", "type": "radio"},
+            {"label": "Gender / الجنس", "description": "What is your gender? (Male/Female) / ما هو جنسك؟ (ذكر/أنثى)", "name": "gender", "type": "radio"}
+        ];
+{#${questions[currentQuestionIndex].label}\n#}
+        renderChatMessage("Bot", `Doctor Bot: ${questions[currentQuestionIndex].description}`, questions[currentQuestionIndex].type);
+
+        nextButton.addEventListener("click", function () {
+            const answer = answerInput.value;
+            saveAnswer(answer);
+        });
+
+        nextRadioButton.addEventListener("click", function () {
+            let answer = "";
+            if (yesRadio.checked) {
+                answer = yesRadio.value;
+            } else if (noRadio.checked) {
+                answer = noRadio.value;
+            }
+            saveAnswer(answer);
+        });
+
+        function renderChatMessage(who, message, type) {
+            const messageElement = document.createElement("div");
+            messageElement.classList.add("message-" + who, who === "Bot" ? "left" : "right");
+            const iconElement = document.createElement("div");
+            iconElement.classList.add("icon" + who);
+            messageElement.appendChild(iconElement);
+            const messageText = document.createElement("div");
+            messageText.innerHTML = message.replace(/\n/g, '<br>');
+            if (type === "radio") {
+                messageText.innerHTML += '<br><small>(Please select Yes or No)</small>';
+            }
+            messageText.classList.add("message-text");
+            messageElement.appendChild(messageText);
+            chatbox.appendChild(messageElement);
+            chatbox.scrollTop = chatbox.scrollHeight;
+        }
+
+        function saveAnswer(answer) {
+            const question = questions[currentQuestionIndex];
+            answers.push({ question: question.name, answer: answer });
+            renderChatMessage("You", answer, question.type);
+            currentQuestionIndex++;
+
+            if (currentQuestionIndex < questions.length) {
+                const nextQuestion = questions[currentQuestionIndex];
+                renderChatMessage("Bot", `Doctor Bot: ${nextQuestion.label}\n${nextQuestion.description}`, nextQuestion.type);
+                if (nextQuestion.type === "radio") {
+                    showRadioButtons();
+                } else {
+                    hideRadioButtons();
+                }
+            } else {
+                // All questions answered
+                showResult();
+            }
+
+            answerInput.value = "";
+        }
+
+        function showRadioButtons() {
+            radioButtonsDiv.style.display = "block";
+            answerInput.style.display = "none"; // Hide text input
+            nextButton.style.display = "none";
+            nextRadioButton.style.display = "block";
+        }
+
+        function hideRadioButtons() {
+            radioButtonsDiv.style.display = "none";
+            answerInput.style.display = "block"; // Show text input
+            nextButton.style.display = "block";
+            nextRadioButton.style.display = "none";
+        }
+
+        function showResult() {
+            // Prepare data to send to server
+            const postData = {
+                answers: answers
+            };
+
+            // POST data to server endpoint
+            fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(postData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Format and display the result in the chat
+                let resultMessage = "Prediction Result:\n";
+                for (const [model, result] of Object.entries(data)) {
+                    let message;
+                    const probability = (Math.random() * 100).toFixed(2); // Mock probability for demonstration
+                    if (result === 1) {
+                        message = `Heart Disease: Yes\n\nProbability: ${probability}%\n\nIt is recommended to consult a healthcare professional for further evaluation and potential treatment. Additionally, consider the following lifestyle changes:\n\n- Maintain a healthy diet\n- Exercise regularly\n- Quit smoking\n- Limit alcohol consumption\n- Monitor blood pressure and blood sugar levels\n- Manage stress effectively`;
+                    } else {
+                        message = `Heart Disease: No\n\nProbability: ${probability}%\n\nContinue maintaining a healthy lifestyle to keep your heart in good condition. Regular check-ups are still recommended.`;
+                    }
+                    resultMessage += `\n${message}\n`;{#${model}:\n#}
+                }
+                // Display instructions for patients
+                renderChatMessage("Bot", "Instructions: Please consult with your doctor for a more detailed analysis.", "text");
+                renderChatMessage("Bot", resultMessage, "text");
+
+
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // Handle error as needed
+            });
+        }
+        </script>
+
+
+
+
+
+</body>
+</html>
